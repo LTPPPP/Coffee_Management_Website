@@ -193,86 +193,13 @@
             </div>
         </div>
         <script>
-            document.querySelector('.cart-submit').addEventListener('click', function (e) {
-                e.preventDefault();
-
-                let cartItems = document.querySelectorAll('.cart-list .cart-item');
-
-                if (cartItems.length === 0) {
-                    // Show notification overlay
-                    showNotification("Your cart is empty. Please add items before ordering.");
-                    return;
-                }
-
-                let cartForm = document.querySelector('.cartForm');
-
-                // Clear any previously added hidden inputs
-                cartForm.querySelectorAll('input[name^="itemId"], input[name^="quantity"]').forEach(el => el.remove());
-
-                cartItems.forEach((item, index) => {
-                    let itemId = item.querySelector('input[name="idItem"]').value;
-                    let quantity = item.querySelector('.cart-quantity-input').value;
-
-                    let itemIdInput = document.createElement('input');
-                    itemIdInput.type = 'hidden';
-                    itemIdInput.name = 'itemId' + (index + 1);
-                    itemIdInput.value = itemId;
-
-                    let quantityInput = document.createElement('input');
-                    quantityInput.type = 'hidden';
-                    quantityInput.name = 'quantity' + (index + 1);
-                    quantityInput.value = quantity;
-
-                    cartForm.appendChild(itemIdInput);
-                    cartForm.appendChild(quantityInput);
+            let cartSubmit = document.querySelector('.cart-submit');
+            cartSubmit.onclick = () => {
+                let cartForm = document.querySelectorAll('.cartForm');
+                cartForm.forEach((e) => {
+                    e.submit();
                 });
-
-                // Add the total number of items
-                let numItemInput = document.createElement('input');
-                numItemInput.type = 'hidden';
-                numItemInput.name = 'numItem';
-                numItemInput.value = cartItems.length;
-                cartForm.appendChild(numItemInput);
-
-                cartForm.submit();
-            });
-
-            function showNotification(message) {
-                // Create notification overlay
-                let overlay = document.createElement('div');
-                overlay.style.position = 'fixed';
-                overlay.style.top = '0';
-                overlay.style.left = '0';
-                overlay.style.width = '100%';
-                overlay.style.height = '100%';
-                overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-                overlay.style.display = 'flex';
-                overlay.style.justifyContent = 'center';
-                overlay.style.alignItems = 'center';
-                overlay.style.zIndex = '9999';
-
-                let notificationBox = document.createElement('div');
-                notificationBox.style.backgroundColor = 'white';
-                notificationBox.style.padding = '20px';
-                notificationBox.style.borderRadius = '5px';
-                notificationBox.style.textAlign = 'center';
-
-                let messageElement = document.createElement('p');
-                messageElement.textContent = message;
-
-                let closeButton = document.createElement('button');
-                closeButton.textContent = 'Close';
-                closeButton.style.marginTop = '10px';
-                closeButton.addEventListener('click', function () {
-                    document.body.removeChild(overlay);
-                });
-
-                notificationBox.appendChild(messageElement);
-                notificationBox.appendChild(closeButton);
-                overlay.appendChild(notificationBox);
-
-                document.body.appendChild(overlay);
-            }
+            };
         </script>
     </body>
 </html>

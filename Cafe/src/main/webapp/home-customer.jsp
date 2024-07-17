@@ -345,17 +345,18 @@
 
                         <div class="footer-item-contact">
                             <i class="fa-solid fa-location-dot"></i>
-                            9/14, Le Hong Phong
+                            X/XX, Ninh Kieu, Can Tho
+                            
                         </div>
 
                         <div class="footer-item-contact">
                             <i class="fa-solid fa-phone"></i>
-                            XXXXXXXXXXX
+                            XXXXXXXXXX
                         </div>
 
                         <div class="footer-item-contact">
                             <i class="fa-solid fa-envelope"></i>
-                            XXXXXXXX@gmail.com
+                            XXXXX@gmail.com
                         </div>
                     </div>
 
@@ -370,18 +371,36 @@
         </div>
 
         <script>
+            let cartSubmit = document.querySelector('.cart-submit');
+            cartSubmit.onclick = () => {
+                let cartForm = document.querySelectorAll('.cartForm');
+                cartForm.forEach((e) => {
+                    e.submit();
+                });
+            };
+            document.querySelectorAll('.category-item a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        const offset = 50; // Desired offset in pixels
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
             document.querySelector('.cart-submit').addEventListener('click', function (e) {
                 e.preventDefault();
 
-                let cartItems = document.querySelectorAll('.cart-item');
-
-                if (cartItems.length === 0) {
-                    // Show notification overlay
-                    showNotification("Your cart is empty. Please add items before ordering.");
-                    return;
-                }
-
                 let cartForm = document.querySelector('.cartForm');
+                let cartItems = document.querySelectorAll('.cart-item');
 
                 // Clear any previously added hidden inputs
                 cartForm.querySelectorAll('input[name^="itemId"], input[name^="quantity"]').forEach(el => el.remove());
@@ -406,43 +425,6 @@
 
                 cartForm.submit();
             });
-
-            function showNotification(message) {
-                // Create notification overlay
-                let overlay = document.createElement('div');
-                overlay.style.position = 'fixed';
-                overlay.style.top = '0';
-                overlay.style.left = '0';
-                overlay.style.width = '100%';
-                overlay.style.height = '100%';
-                overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-                overlay.style.display = 'flex';
-                overlay.style.justifyContent = 'center';
-                overlay.style.alignItems = 'center';
-                overlay.style.zIndex = '9999';
-
-                let notificationBox = document.createElement('div');
-                notificationBox.style.backgroundColor = 'white';
-                notificationBox.style.padding = '20px';
-                notificationBox.style.borderRadius = '5px';
-                notificationBox.style.textAlign = 'center';
-
-                let messageElement = document.createElement('p');
-                messageElement.textContent = message;
-
-                let closeButton = document.createElement('button');
-                closeButton.textContent = 'Close';
-                closeButton.style.marginTop = '10px';
-                closeButton.addEventListener('click', function () {
-                    document.body.removeChild(overlay);
-                });
-
-                notificationBox.appendChild(messageElement);
-                notificationBox.appendChild(closeButton);
-                overlay.appendChild(notificationBox);
-
-                document.body.appendChild(overlay);
-            }
         </script>
 
     </body>
