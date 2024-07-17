@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault();
       itemContainer.scrollBy({
         left: -itemWidth,
-        behavior: "smooth",
+        behavior: "smooth"
       });
     });
 
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault();
       itemContainer.scrollBy({
         left: itemWidth,
-        behavior: "smooth",
+        behavior: "smooth"
       });
     });
   });
@@ -34,14 +34,14 @@ let cart = document.querySelector('.cart-list-container');
 
 
 cartContainer.onclick = () => {
-  if (cart.style.display == 'none' || cart.style.display == '') {
+  if (cart.style.display === 'none' || cart.style.display === '') {
     cart.style.display = 'block';
     cartICon.classList.add('fa-xmark');
   } else {
     cart.style.display = 'none';
     cartICon.classList.remove('fa-xmark');
   }
-}
+};
 
 // Order to cart
 let itemOrder = document.querySelectorAll('.item-order');
@@ -53,7 +53,7 @@ let list = [];
 itemOrder.forEach((e) => {
   let orderBtn = (e.querySelector('.orderBtn'));
   let id = e.querySelector('input').value;
-  let img = e.querySelector('img').src
+  let img = e.querySelector('img').src;
   let name = e.querySelector('.item-name').textContent;
   let price = e.querySelector('.item-price').textContent;
   orderBtn.onclick = () => {
@@ -70,7 +70,7 @@ itemOrder.forEach((e) => {
     }
     console.log(list);
     updateCartList();
-  }
+  };
 });
 
 // increase or decrease item
@@ -94,21 +94,21 @@ function changeQuantityCart() {
     decrease.onclick = () => {
       let currItem = list.find(e => e.id === id);
       if (currItem.quantity <= 1) {
-        list = list.filter(e => e.id !== id)
+        list = list.fil;ter(e => e.id !== id);
       } else {
         currItem.quantity -= 1;
       }
       updateCartList();
     };
     removeIcon.onclick = () => {
-      list = list.filter(e => e.id !== id)
+      list = list.filter(e => e.id !== id);
       updateCartList();
     };
     remove.onclick = () => {
-      list = list.filter(e => e.id !== id)
+      list = list.filter(e => e.id !== id);
       updateCartList();
     };
-  })
+  });
 }
 
 
@@ -162,17 +162,6 @@ function updateCartList() {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
 //slider
 let sliderList = document.querySelector('.slider-list');
 let sliderItem = document.querySelectorAll('.slider-item');
@@ -193,7 +182,7 @@ next.onclick = function () {
     active++;
   }
   reloadSlider();
-}
+};
 
 // prev btn
 prev.onclick = function () {
@@ -203,10 +192,10 @@ prev.onclick = function () {
     active--;
   }
   reloadSlider();
-}
+};
 
 // auto chuyển slider
-let refeshSlider = setInterval(() => { next.click() }, 5000);
+let refeshSlider = setInterval(() => { next.click(); }, 5000);
 
 function reloadSlider() {
   let checkLeft = sliderItem[active].offsetLeft;
@@ -223,12 +212,12 @@ function reloadSlider() {
 
   //xoá thời gian đếm auto chuyển slider và gọi lại để đếm lại từ đầu
   clearInterval(refeshSlider);
-  refeshSlider = setInterval(() => { next.click() }, 5000)
+  refeshSlider = setInterval(() => { next.click(); }, 5000);
 }
 
 sliderDot.forEach((li, key) => {
   li.addEventListener('click', function () {
     active = key;
     reloadSlider();
-  })
-})
+  });
+});

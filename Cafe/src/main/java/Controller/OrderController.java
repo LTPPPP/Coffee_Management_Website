@@ -10,9 +10,11 @@ import Models.Order;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -33,12 +35,34 @@ public class OrderController extends HttpServlet {
             request.getRequestDispatcher("home-customer.jsp").forward(request, response);
         }
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String idCus = request.getParameter("idCus");
         request.setAttribute("idCus", idCus);
-        int numItem = Integer.parseInt(request.getParameter("numItem"));
+//        int numItem = Integer.parseInt(request.getParameter("numItem"));
+        String numItemStr = request.getParameter("numItem");
+        int numItem = 0;
+        if (numItemStr != null && !numItemStr.isEmpty()) {
+            numItem = Integer.parseInt(numItemStr);
+        } else {
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                session.invalidate();
+            }
+            // Delete all cookies
+            Cookie[] cookies = request.getCookies();
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie);
+                }
+            }
+            // Redirect to the login page
+            response.sendRedirect("login.jsp");
+            return;
+        }
         int count = 0;
         for (int i = 1; i <= numItem; i++) {
             int quantity = Integer.parseInt(request.getParameter("quantityItem" + i));

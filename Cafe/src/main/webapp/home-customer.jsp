@@ -195,7 +195,7 @@
         <div class="category hide-on-moblile">
             <div class="category-content">
                 <div class="row">
-                    <div class="category-item col l-3">
+                    <div class="category-item col l-4">
                         <a href="#drink-container">
                             <div class="category-icon">
                                 <img src="../asset/img/img_customer/category/coffee.png" alt="">
@@ -204,7 +204,7 @@
                         </a>
                     </div>
 
-                    <div class="category-item col l-3">
+                    <div class="category-item col l-4">
                         <a href="#food-container">
                             <div class="category-icon">
                                 <img src="../asset/img/img_customer/category/food.png" alt="">
@@ -213,7 +213,7 @@
                         </a>
                     </div>
 
-                    <div class="category-item col l-3">
+                    <div class="category-item col l-4">
                         <a href="#dessert-container">
                             <div class="category-icon">
                                 <img src="../asset/img/img_customer/category/dessert.png" alt="">
@@ -221,16 +221,6 @@
                             <div class="catergory-title">DESSERT</div>
                         </a>
                     </div>
-
-                    <div class="category-item col l-3">
-                        <a href="#staff-title">
-                            <div class="category-icon">
-                                <img src="../asset/img/img_customer/category/staff.png" alt="">
-                            </div>
-                            <div class="catergory-title">STAFF</div>
-                        </a>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -426,6 +416,5 @@
                 cartForm.submit();
             });
         </script>
-
     </body>
 </html>

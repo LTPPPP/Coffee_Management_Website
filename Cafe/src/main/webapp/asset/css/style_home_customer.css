@@ -417,7 +417,7 @@ nav {
     height: 260px;
     border-radius: 45px;
     flex-shrink: 0;
-    padding: 10px 0px;
+    padding: 0;
     /* animation */
     transition: 0.5s;
     transform-style: preserve-3d;
@@ -517,7 +517,9 @@ nav {
     display: none;
 }
 
-
+.category-item a {
+    text-decoration: none;
+}
 /* staff */
 
 #staff-title {
