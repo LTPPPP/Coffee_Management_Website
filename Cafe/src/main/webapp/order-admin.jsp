@@ -174,8 +174,8 @@
                                                             <tr class="bill-row row">
                                                                 <th class="bill-item col l-3">${item.item_name}</th>
                                                                 <th class="bill-item col l-3">${order.order_quantity}</th>
-                                                                <th class="bill-item col l-3">${item.item_price}</th>
-                                                                <th class="bill-item col l-3">${item.item_price * order.order_quantity}</th>
+                                                                <th class="bill-item col l-3">${item.item_price}0 VND</th>
+                                                                <th class="bill-item col l-3">${item.item_price * order.order_quantity}0 VND</th>
                                                             </tr>
                                                         </c:forEach>
                                                         <tr class="total-row row">
@@ -185,7 +185,7 @@
                                                                 <c:forEach var="order" items="${entry.value}">
                                                                     <c:set var="total" value="${total + order.item.item_price * order.order_quantity}" />
                                                                 </c:forEach>
-                                                                ${total}
+                                                                ${total}0 VND
                                                             </th>
                                                             <th class="bill-item col l-3">
                                                                 <button onclick="showConfirm('${firstOrder.customer_id}', '${firstOrder.customer.customer_table}', '${firstOrder.customer.customer_name}')" class="remove-btn">Remove</button>
