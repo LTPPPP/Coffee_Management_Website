@@ -255,6 +255,23 @@ public class ItemDAO {
         return rs;
     }
 
+    public ResultSet getItemByIdResultSet(String id) {
+        Connection conn = DBConnection.getConnection();
+        ResultSet rs = null;
+        if (conn != null) {
+            try {
+                String query = "SELECT * FROM Item WHERE Item_id = ?";
+                PreparedStatement pstmt = conn.prepareStatement(query);
+                pstmt.setString(1, id);
+                rs = pstmt.executeQuery();
+            } catch (SQLException ex) {
+                System.out.println("Error getting item by ID: " + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
+        return rs;
+    }
+
     public static void main(String[] args) throws SQLException {
         ItemDAO obj = new ItemDAO();
         ResultSet rs = obj.getAllDrink();
