@@ -1,0 +1,202 @@
+html {
+    background-color: var(--brown-color);
+    display: flex;
+    padding: 10px 0;
+    justify-content: center;
+}
+
+.app {}
+
+/* Bill container */
+
+.bill-container {
+    width: 35vw;
+    background-color: #e7e7e9;
+    text-align: center;
+    padding: 0 30px;
+    box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.8);
+}
+
+.bill-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.bill-logo img {
+    height: 50px;
+}
+
+.bill-location {
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+.bill-phone {
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+/* Bill content */
+
+.bill-title {
+    font-size: 5rem;
+    line-height: 5rem;
+    font-weight: 600;
+    margin: 10px 0;
+    text-transform: uppercase;
+}
+
+.bill-info {
+    font-size: 2rem;
+    line-height: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Receipt container */
+
+.receipt-container {
+    padding: 10px 0;
+}
+
+/* receipt title  */
+.receipt-title {
+    font-size: 1.8rem;
+    line-height: 2rem;
+    font-weight: 600;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.receipt-title-item:nth-child(1) {
+    text-align: left;
+}
+
+/* receipt list  */
+.receipt-item {
+    margin: 5px 0;
+    font-size: 1.6rem;
+}
+
+.receipt-name {
+    text-align: left;
+}
+
+
+/* receipt bottom  */
+
+.receipt-bottom {
+    font-size: 2rem;
+    line-height: 2rem;
+    border-top: 1px solid #ccc;
+    margin-top: 5px;
+    padding: 5px 0;
+}
+
+.receipt-bottom-item:nth-child(1) {
+    text-align: left;
+    font-weight: 600;
+}
+
+/* Button container */
+.button-container {
+    margin: 15px 0;
+}
+
+.save-button {
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.8rem;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--brown-color);
+    box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.8);
+    transition: 0.2s linear;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+    transform: translateY(5px);
+}
+
+/* Reponsive */
+/* PC */
+@media (min-width: 1023px) {
+    .hide-on-PC {
+        display: none;
+    }
+
+
+}
+
+/* Mobile & Tablet */
+@media (max-width: 1023px) {
+
+    .hide-on-moblile-tablet {
+        display: none;
+    }
+
+
+
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+    .hide-on-tablet {
+        display: none;
+    }
+
+
+
+}
+
+/* Mobile */
+@media (max-width: 739px) {
+    .hide-on-moblile {
+        display: none;
+    }
+
+    html {
+        padding: 100px 0;
+    }
+
+    .bill-container {
+        width: 80vw;
+
+    }
+
+    /* Bill content */
+
+    .bill-title {
+        font-size: 3.5rem;
+        line-height: 3.5rem;
+    }
+
+    .bill-info {
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+    }
+
+
+    /* Receipt container */
+
+    .receipt-container {
+        padding: 10px 0;
+    }
+
+    /* receipt title  */
+    .receipt-title {
+        font-size: 1.6rem;
+        line-height: 1.8rem;
+        font-weight: 600;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px;
+    }
+
+
+
+}
