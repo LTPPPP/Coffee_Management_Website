@@ -129,13 +129,13 @@
                                                     <%= itemInfo.getString("Item_name")%>
                                                 </div>
                                                 <div class="receipt-price col l-3 c-2">
-                                                    <%= itemInfo.getString("Item_price")%>
+                                                    <%= itemInfo.getString("Item_price")%> VND
                                                 </div>
                                                 <div class="receipt-quantity col l-3 c-3">x
                                                     <%=rs.getString("Order_quantity")%>
                                                 </div>
                                                 <div class="receipt-total col l-3 c-4">
-                                                    <%= finalPrice + "00"%>
+                                                    <%= finalPrice + "00"%> VND
                                                 </div>
                                             </div>
                                         </div>
@@ -150,7 +150,7 @@
                                     <div class="row">
                                         <div class="receipt-bottom-item col l-9 c-8">Total</div>
                                         <div class="receipt-bottom-item col l-3 c-4">
-                                            <%= total + "00"%>
+                                            <%= total + "00"%> VND
                                         </div>
 
                                     </div>
@@ -181,7 +181,6 @@
             function autoClick() {
                 $(".download-link").click();
             }
-
             $(document).ready(function () {
                 var element = $(".bill-container");
 
@@ -194,7 +193,6 @@
                             $(".download-link").attr("download", "bill.png").attr("href", newData);
                         }
                     });
-
                 });
             });
         </script>

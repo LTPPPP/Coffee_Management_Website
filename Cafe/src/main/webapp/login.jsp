@@ -12,6 +12,9 @@
         <link rel="stylesheet" href="asset/css/grid.css">
         <link rel="stylesheet" href="asset/css/responsive.css">
         <link rel="stylesheet" href="asset/font/fontawesome-free-6.4.2-web/css/all.min.css">
+        <!-- link logo -->
+        <link rel="icon" href="../asset/img/img_admin/img_Order/logo-symbol.png"
+              type="image/x-icon">
 
         <!-- link js -->
         <script src="./asset/js/js_login.js" defer></script>
